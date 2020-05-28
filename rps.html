@@ -4,26 +4,51 @@
         <title>RPS</title>
     </head>
 <body>
+    <!-- ToDo
+    Increment round counter
+    Increment score counter
+    Loop playRound() inside of game()
+    -->
 <script>
 
-    function computerPlay () {
+    let computerScore = 0;
+    let playerScore = 0;
+    let roundCount = 0; 
+
+    function computerPlay() {
         const choices = ["rock","paper","scissors"];
-        const computerSelection = choices[Math.floor(Math.random() * choices.length)];
-        alert(computerSelection);
+        const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+        return computerChoice;
     }
 
-    function round () {
-        switch() {
-            case (computerSelection = "rock" && playerSelection = "rock");
-            case
-            case
-            case
-            case
-            case
+    function playRound() {
+
+        let message;
+        const playerSelection = prompt("Please choose rock, paper, or scissors ...").toLowerCase();
+        const computerSelection = computerPlay(); 
+        alert("The computer chose " + computerSelection + "!")
+
+        if ((computerSelection == "rock") && (playerSelection == "rock") || (computerSelection == "paper") && (playerSelection == "paper") || (computerSelection == "scissors") && (playerSelection == "scissors")) {
+            message = "It's a tie!";
+        } else if ((computerSelection == "rock") && (playerSelection == "paper") || (computerSelection == "paper") && (playerSelection == "scissors") || (computerSelection == "scissors") && (playerSelection == "rock")) {
+            message = "You win - congratulations!";
+            playerScore++;
+        } else {
+            message = "You lose - better luck next time!";
+            computerScore++;
         }
+        alert(message);
+        roundCount++;
+        alert("After Round " + roundCount + " the score is : Player " + playerScore + " - Computer " + computerScore)
     }
 
-    computerPlay();
+    function game() {
+        playRound();
+        playRound();
+    }
+
+    game();
+
 </script>
 </body>
 
