@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPS</title>
+    </head>
+<body>
+    <!-- ToDo
+    Increment round counter
+    Increment score counter
+    Loop playRound() inside of game()
+    -->
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+<script>
+
+    let computerScore = 0;
+    let playerScore = 0;
+    let roundCount = 0; 
+    let playerSelection = '';
+
+    function computerPlay() {
+        const choices = ["rock","paper","scissors"];
+        const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+        return computerChoice;
+    }
+
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+        playerSelection = "rock";
+        playRound();
+    });
+    const paper = document.querySelector('#paper');
+    paper.addEventListener('click', () => {
+        playerSelection = "paper";
+        playRound();
+    });
+    const scissors = document.querySelector('#scissors');
+    scissors.addEventListener('click', () => {
+        playerSelection = "scissors";
+        playRound();
+    });
+
+    function playRound() {
+
+        let message;
+        const computerSelection = computerPlay(); 
+        alert("The computer chose " + computerSelection + "!")
+        alert("You chose " + playerSelection + "!")
+
+        if ((computerSelection == "rock") && (playerSelection == "rock") || (computerSelection == "paper") && (playerSelection == "paper") || (computerSelection == "scissors") && (playerSelection == "scissors")) {
+            message = "It's a tie!";
+        } else if ((computerSelection == "rock") && (playerSelection == "paper") || (computerSelection == "paper") && (playerSelection == "scissors") || (computerSelection == "scissors") && (playerSelection == "rock")) {
+            message = "You win - congratulations!";
+            playerScore++;
+        } else {
+            message = "You lose - better luck next time!";
+            computerScore++;
+        }
+        alert(message);
+        roundCount++;
+        alert("After Round " + roundCount + " the score is : Player " + playerScore + " - Computer " + computerScore)
+    }
+
+
+</script>
+</body>
+
+</html>

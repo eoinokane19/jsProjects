@@ -43,25 +43,45 @@ const textNodes = [
         options: [
             {
                 text: 'Start',
-                setState: { },
+                setState: {},
                 nextText: 2
             }
         ]
     },
     {
         id: 2,
-        text: 'Your client is BioPharma, a multinational healthcare company headquartered in the Netherlands.',
+        text: 'Your client is BioPharma, a multinational healthcare company headquartered in the Netherlands',
         options: [
             {
-                text: 'Inquire about revenue',
+                text: "I'd like to know more about BioPharma's revenue",
                 setState: {},
                 nextText: 3
             },
             {
-                text: 'Inquire about costs',
+                text: "I'd like to know more about BioPharma's cost structure",
                 setState: {},
                 nextText: 3
             }   
+        ]
+    },
+    {
+        id: 3,
+        text: "BioPharma's revenue has increased year on year by 12% since 2014",
+        options: [
+            {
+                text: "What about costs?",
+                setState: {},
+                nextText: 4
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "BioPharma's cost structure is shown below in Figure 1",
+        options: [
+            {
+                text: "Here is some stuff",
+            }
         ]
     }
 ]
